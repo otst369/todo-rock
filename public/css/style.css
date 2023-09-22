@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-bar {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-name {
+    margin-right: 10px;
+  }
+  
+  .register-button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+
+
+/*投稿ボタンのcss*/
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  width: calc(25% - 20px);
+  box-sizing: border-box;
+}
+
+.post-box .image-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.post-box .image-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.post-box .title {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.post-box .contents {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.post-box .button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.register-button, .like-button, .edit-button, .delete-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.like-button {
+  background-image: url('heart-icon.png'); /* Add the path to your heart icon image */
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center;
+  padding-left: 30px; /* Adjust the padding to fit the heart icon */
+}
+
+.register-button:hover, .like-button:hover, .edit-button:hover, .delete-button:hover {
+  background-color: #9df0af;
+}
+
+.edit-button:active, .delete-button:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+.edit-button:active, .delete-button:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
