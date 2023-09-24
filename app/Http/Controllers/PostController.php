@@ -9,6 +9,6 @@ class PostController extends Controller
     //
     function index()
     {
-        return view('posts.index');
+        return view('tasks.index');
     }
 }
