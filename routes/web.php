@@ -21,4 +21,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/tasks', [App\Http\Controllers\PostController::class, 'index'])->name('tasks.index');
