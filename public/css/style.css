@@ -46,15 +46,22 @@ body {
 .post-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px; 
 }
 
 .post-box {
   border: 1px solid #ccc;
   padding: 20px;
-  margin: 10px;
   width: calc(25% - 20px);
   box-sizing: border-box;
+  margin-bottom: 20px; 
 }
+
+/* @media (min-width: 1200px) {
+  .post-box {
+    width: calc(20% - 20px);
+  }
+} */
 
 .post-box .image-container {
   width: 100%;

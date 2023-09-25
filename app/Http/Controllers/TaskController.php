@@ -13,18 +13,15 @@ class TaskController extends Controller
     function index()
     {
         $tasks = Task::all();
+        $tasks = Task::latest()->get();
         return view('tasks.index', compact('tasks'));
     }
 
     //新規作成
     function create(Request $request)
     {
-        // $validator = $request->validate([
-        //     'title' => ['required', 'string','max:30' ],
-        //     'contents' =>['required', 'string','max:140'],
-        //     'image_at' =>['required', 'image']
-        // ]);
-        return view('tasks.create');
+        $tasks = Task::latest()->get();
+        return view('tasks.create',['tasks' => '$tasks']);
     }
 
     //新規投稿保存
@@ -43,7 +40,9 @@ class TaskController extends Controller
         $task -> user_id= Auth::id();
         $task -> save();
 
-        return redirect()->route('tasks.index');
+        $tasks = Task::all();
+
+        return view('tasks.index', compact('tasks'));
     }
 
     // function show($id)
