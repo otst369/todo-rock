@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task; 
+use Illuminate\Support\Facades\Auth;
+
 
 class TaskController extends Controller
 {
@@ -24,5 +26,13 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
-
+    function store(Request $request)
+    {
+        $task = new Task;
+        $task -> title = $request -> title;
+        $task -> contents = $request -> contents;
+        $task -> image_at = $request -> image_at;
+        $task -> id= Auth::id();
+        $task -> save();
+    }
 }
