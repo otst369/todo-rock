@@ -32,7 +32,42 @@ class TaskController extends Controller
         $task -> title = $request -> title;
         $task -> contents = $request -> contents;
         $task -> image_at = $request -> image_at;
-        $task -> id= Auth::id();
+        $task -> user_id= Auth::id();
         $task -> save();
+
+        return redirect()->route('tasks.index');
+    }
+
+    function show($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.show', compact('task'));
+    }
+
+    function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit',['task' => $task]);
+    }
+
+    function update(Request $request, $id)
+    {
+        $task = Task::find($id);
+
+        $task -> title = $request -> title;
+        $task -> contents = $request -> contents;
+        $task -> image_at = $request -> image_at;
+
+        $task -> save();
+
+        // return view('tasks.show', compact('task'));
+        return redirect()->route('tasks.show', ['id' => $id]);
+    }
+
+    function destroy($id)
+    {
+        $task = Task::find($id);
+        $task -> delete();
+        return redirect()->route('tasks.index');
     }
 }
