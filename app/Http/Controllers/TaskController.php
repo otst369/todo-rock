@@ -22,6 +22,8 @@ class TaskController extends Controller
     {
         $tasks = Task::latest()->get();
         return view('tasks.create',['tasks' => '$tasks']);
+
+        
     }
 
     //新規投稿保存
