@@ -19,17 +19,23 @@ class TaskController extends Controller
     //新規作成
     function create(Request $request)
     {
-        $validator = $request->validate([
-            'title' => ['required', 'string','max:30' ],
-            'contents' =>['required', 'string','max:140'],
-            'image_at' =>['required', 'image']
-        ]);
+        // $validator = $request->validate([
+        //     'title' => ['required', 'string','max:30' ],
+        //     'contents' =>['required', 'string','max:140'],
+        //     'image_at' =>['required', 'image']
+        // ]);
         return view('tasks.create');
     }
 
     //新規投稿保存
     function store(Request $request)
     {
+        $validator = $request->validate([
+            'title' => ['required', 'string','max:30' ],
+            'contents' =>['required', 'string','max:140'],
+            'image_at' =>['required', 'image']
+        ]);
+
         $task = new Task;
         $task -> title = $request -> title;
         $task -> contents = $request -> contents;
