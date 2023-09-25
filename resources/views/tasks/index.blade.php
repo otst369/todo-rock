@@ -15,7 +15,10 @@
     </div>
   </div>
   <div class="user-info">
-    <button class="register-button">新規投稿</button>
+    <button class="register-button">
+      <a href="{{ route('tasks.create') }}">新規投稿</a>
+    </button>
+  
   </div>
 </header> 
 
