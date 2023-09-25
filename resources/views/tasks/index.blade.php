@@ -15,27 +15,30 @@
     </div>
   </div>
   <div class="user-info">
-    <button class="register-button">新規投稿</button>
+    <button class="register-button">
+      <a href="{{ route('tasks.create') }}">新規投稿</a>
+    </button>
+  
   </div>
 </header> 
 
-{{-- @foreach ($posts as $post) --}}
+@foreach ($tasks as $task)
 <div class="post-box">
   <div class="image-container">
-    {{-- <img src="resources/img/tatemono_gakkou.png" alt="Image"> --}}
-    <img src="/img/tatemono_gakkou.png" alt="Image">
+    <img src="/storage/{{ $task->image_at }}" alt="Image">
 
   </div>
   <div class="post-content">
-    <h2 class="title">タイトル</h2>
-    <p class="contents">説明(discription)</p>
-    {{-- <button class="like-button">いいね</button> --}}
+    <h2 class="title">{{ $task->title }}</h2>
+    <p class="contents">{{ $task->contents }}</p>
+
     <a href="#"><i class="far fa-bookmark"></i></a>
     <button class="edit-button">編集</button>
     <button class="delete-button">削除</button>
+    {{-- <a href="{{ route('tasks.show', $task->id) }}">View Details</a> --}}
   </div>
 </div>
-{{-- @endforeach --}}
+@endforeach
+
 @endsection
-{{-- </body>
-</html> --}}
+
