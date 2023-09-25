@@ -12,7 +12,7 @@ class TaskController extends Controller
     //一覧表示
     function index()
     {
-        $tasks = Task::all();
+        // $tasks = Task::all();
         $tasks = Task::latest()->get();
         return view('tasks.index', compact('tasks'));
     }
