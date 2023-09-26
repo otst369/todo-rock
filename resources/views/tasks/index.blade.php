@@ -26,12 +26,16 @@
 <div class="big-container">
 @foreach ($tasks as $task)
 <div class="post-box">
-  <div class="image-container">
-    <img src="{{asset('storage/images/') . $task->image_at }}" alt="Image">
-  </div>
+  {{-- <div class="image-container">
+    <img src="{{asset('/storage/images/') . $task->image_at }}" alt="Image">
+  </div> --}}
   {{-- <div class="image-container">
     <img src="{{ asset('/storage/images/' . $task->image_at) }}" alt="Image">
   </div> --}}
+  <div class="image-container">
+    <img src="{{ url('storage/images/' . $task->image_at) }}" alt="Image">
+  </div>
+
 
   <div class="post-content">
     <h2 class="title">{{ $task->title }}</h2>
