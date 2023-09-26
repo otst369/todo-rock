@@ -42,8 +42,14 @@
     <p class="contents">{{ $task->contents }}</p>
 
     <a href="#"><i class="far fa-bookmark"></i></a>
-    <button class="edit-button">編集</button>
-    <button class="delete-button">削除</button>
+    <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
+    <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
+      @csrf
+      @method('delete')
+
+    <input type='submit' value='削除'class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>  
+    {{-- <button class="delete-button">削除</button> --}}
+    </form>
     {{-- <a href="{{ route('tasks.show', $task->id) }}">View Details</a> --}}
   </div>
 </div>

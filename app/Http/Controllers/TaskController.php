@@ -81,7 +81,7 @@ class TaskController extends Controller
         $task -> save();
 
         // return view('tasks.show', compact('task'));
-        return redirect()->route('tasks.show', ['id' => $id]);
+        return redirect()->route('tasks.index', ['id' => $id]);
     }
 
     //投稿削除
