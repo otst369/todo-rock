@@ -1,10 +1,11 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head> 
-
 @extends('layouts.app')
 @section('content')
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head> 
+
 
 <header>
   <div class="header-left">
@@ -22,12 +23,16 @@
   </div>
 </header> 
 
+<div class="big-container">
 @foreach ($tasks as $task)
 <div class="post-box">
   <div class="image-container">
-    <img src="/storage/{{ $task->image_at }}" alt="Image">
-
+    <img src="/public/storage/images/{{ $task->image_at }}" alt="Image">
   </div>
+  {{-- <div class="image-container">
+    <img src="{{ asset('/storage/images/' . $task->image_at) }}" alt="Image">
+  </div> --}}
+
   <div class="post-content">
     <h2 class="title">{{ $task->title }}</h2>
     <p class="contents">{{ $task->contents }}</p>
@@ -39,6 +44,7 @@
   </div>
 </div>
 @endforeach
+</div>
 
 @endsection
 

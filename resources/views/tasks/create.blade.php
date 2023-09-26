@@ -9,7 +9,7 @@
                 <div class="card-header">Create Task</div>
 
                 <div class="card-body">
-                        <form method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

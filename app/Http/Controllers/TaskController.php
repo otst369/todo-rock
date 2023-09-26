@@ -12,7 +12,7 @@ class TaskController extends Controller
     //一覧表示
     function index()
     {
-        $tasks = Task::all();
+        // $tasks = Task::all();
         $tasks = Task::latest()->get();
         return view('tasks.index', compact('tasks'));
     }
@@ -21,6 +21,8 @@ class TaskController extends Controller
     function create(Request $request)
     {
         $tasks = Task::latest()->get();
+        // $image_at = request()->('image_at')->getClientOriginName();
+        // request()->file('avator')->storeAs('public/images', $image_at);
         return view('tasks.create',['tasks' => '$tasks']);
 
         
@@ -42,9 +44,10 @@ class TaskController extends Controller
         $task -> user_id= Auth::id();
         $task -> save();
 
-        $tasks = Task::all();
+        // $tasks = Task::all();
 
-        return view('tasks.index', compact('tasks'));
+        // return view('tasks.index', compact('tasks'));
+        return redirect()->route('tasks.index');
     }
 
     // function show($id)
