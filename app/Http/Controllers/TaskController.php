@@ -22,7 +22,9 @@ class TaskController extends Controller
     {
         $tasks = Task::latest()->get();
         // $image_at = request()->('image_at')->getClientOriginName();
-        // request()->file('avator')->storeAs('public/images', $image_at);
+        $image_at = request()->file('image_at')->getClientOriginalName();
+        request()->file('image_at')->storeAs('public/images', $image_at);
+        
         return view('tasks.create',['tasks' => '$tasks']);
 
         

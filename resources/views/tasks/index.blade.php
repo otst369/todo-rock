@@ -27,7 +27,7 @@
 @foreach ($tasks as $task)
 <div class="post-box">
   <div class="image-container">
-    <img src="/public/storage/images/{{ $task->image_at }}" alt="Image">
+    <img src="{{asset('storage/images/') . $task->image_at }}" alt="Image">
   </div>
   {{-- <div class="image-container">
     <img src="{{ asset('/storage/images/' . $task->image_at) }}" alt="Image">
