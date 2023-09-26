@@ -42,9 +42,10 @@ class TaskController extends Controller
         $task -> user_id= Auth::id();
         $task -> save();
 
-        $tasks = Task::all();
+        // $tasks = Task::all();
 
-        return view('tasks.index', compact('tasks'));
+        // return view('tasks.index', compact('tasks'));
+        return redirect()->route('tasks.index');
     }
 
     // function show($id)
