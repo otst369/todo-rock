@@ -33,9 +33,9 @@ class TaskController extends Controller
     //新規投稿保存
     function store(Request $request)
     {
-        $image_at = request()->file('image_at')->getClientOriginalName();
-        request()->file('image_at')->storeAs('public/images', $image_at);
-        
+        $image_at = $request()->file('image_at')->getClientOriginalName();
+        $request()->file('image_at')->storeAs('public/images', $image_at);
+
         $validator = $request->validate([
             'title' => ['required', 'string','max:30' ],
             'contents' =>['required', 'string','max:140'],
@@ -45,7 +45,7 @@ class TaskController extends Controller
         $task = new Task;
         $task -> title = $request -> title;
         $task -> contents = $request -> contents;
-        $task -> image_at = $request -> image_at;
+        $task -> image_at = $image_at;
         $task -> user_id= Auth::id();
         $task -> save();
 
