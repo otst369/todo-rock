@@ -38,9 +38,10 @@
                     <p class="contents">{{ $task->contents }}</p>
 
                     <div class="inside-container">
+                        @if($task->user_id == Auth::user()->id)
                         <div class="bookmark">
                           <a href="#"><i class="far fa-bookmark"></i></a>
-                        </div>
+                        </div> 
                         <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
                         <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
                             @csrf
@@ -51,6 +52,7 @@
                             {{-- <button class="delete-button">削除</button> --}}
                         </form>
                         {{-- <a href="{{ route('tasks.show', $task->id) }}">View Details</a> --}}
+                        @endif
                     </div>
                 </div>
             </div>
