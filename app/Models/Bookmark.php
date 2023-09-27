@@ -16,8 +16,4 @@ class Bookmark extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
-    public function likedBy($user)
-    {
-        return Bookmark::where('user_id', $user->id)->where('task_id', $this->id)->exists();
-    }
 }
