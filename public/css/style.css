@@ -50,19 +50,13 @@ body {
   margin: 20px;
 }
 
-<<<<<<< Updated upstream
 .inside-container{
   display: flex;
   flex-direction: row;
-=======
-.inside-container {
-  display: flex;
->>>>>>> Stashed changes
   justify-content: center;
   align-items: center;
 }
 
-<<<<<<< Updated upstream
 .bookmark {
   margin-right: 32px;
 }
@@ -88,29 +82,6 @@ body {
   text-decoration: none;
 }
 
-=======
-.bookmark{
- margin-right: 32px;
-}
-
-/* .up-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-.title{
-  text-align: center;
-}
-.contents{
-  text-align: center;
-}
-.image-container{
-  text-align: center;
-}
-
->>>>>>> Stashed changes
 .post-container {
   display: flex;
   flex-wrap: wrap;
