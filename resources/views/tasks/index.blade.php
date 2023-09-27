@@ -30,6 +30,7 @@
     <div class="big-container">
         @foreach ($tasks as $task)
             <div class="post-box">
+                <h2 class="name">{{ $task->user->name }}</h2>
                 <div class="image-container">
                     <img src="{{ url('storage/images/' . $task->image_at) }}" alt="Image">
                 </div>
