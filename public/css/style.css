@@ -34,8 +34,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 15px;
+    text-decoration: none;
   }
-
 
 /*投稿ボタンのcss*/
 
@@ -50,6 +50,67 @@ body {
   margin: 20px;
 }
 
+<<<<<<< Updated upstream
+.inside-container{
+  display: flex;
+  flex-direction: row;
+=======
+.inside-container {
+  display: flex;
+>>>>>>> Stashed changes
+  justify-content: center;
+  align-items: center;
+}
+
+<<<<<<< Updated upstream
+.bookmark {
+  margin-right: 32px;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+.contents {
+  text-align: center;
+}
+.edit-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;  
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+=======
+.bookmark{
+ margin-right: 32px;
+}
+
+/* .up-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+.title{
+  text-align: center;
+}
+.contents{
+  text-align: center;
+}
+.image-container{
+  text-align: center;
+}
+
+>>>>>>> Stashed changes
 .post-container {
   display: flex;
   flex-wrap: wrap;
@@ -102,6 +163,17 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.edit-button{
+  padding: 8px 16px;
+  background-color: #4CAF50;  
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
 }
 
 .like-button {
