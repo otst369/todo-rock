@@ -72,8 +72,16 @@ class TaskController extends Controller
     //編集したデータを保存
     function update(Request $request, $id)
     {
-        $task = Task::find($id);
+        $image_at = $request->file('image_at')->getClientOriginalName();
+        $request->file('image_at')->storeAs('public/images', $image_at);
 
+        $validator = $request->validate([
+            'title' => ['required', 'string','max:30' ],
+            'contents' =>['required', 'string','max:140'],
+            'image_at' =>['required', 'image']
+        ]);
+
+        $task = Task::find($id);
         $task -> title = $request -> title;
         $task -> contents = $request -> contents;
         $task -> image_at = $request -> image_at;
