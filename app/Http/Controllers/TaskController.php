@@ -72,15 +72,26 @@ class TaskController extends Controller
     //編集したデータを保存
     function update(Request $request, $id)
     {
+        $validator = $request->validate([
+            'title' => ['required', 'string','max:30' ],
+            'contents' =>['required', 'string','max:140'],
+            'image_at' =>['required', 'image']
+        ]);
+
+         // 画像がアップロードされた場合にのみ処理を行う
+        if ($request->hasFile('image_at')) {
+            $image_at = $request->file('image_at')->getClientOriginalName();
+            $request->file('image_at')->storeAs('public/images', $image_at);
+        }
+
         $task = Task::find($id);
+        $task->title = $request->title;
+        $task->contents = $request->contents;
+        if (isset($image_at)) {
+            $task->image_at = $image_at;
+        }
+        $task->save();
 
-        $task -> title = $request -> title;
-        $task -> contents = $request -> contents;
-        $task -> image_at = $request -> image_at;
-
-        $task -> save();
-
-        // return view('tasks.show', compact('task'));
         return redirect()->route('tasks.index', ['id' => $id]);
     }
 
