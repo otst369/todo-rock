@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< Updated upstream
+ Updated upstream
 
     <head>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -71,10 +71,14 @@
 <header>
   <div class="header-left">
     <span class="todo-text">検索機能</span>
-    <div class="search-bar">
+    <form action="{{ route('tasks.search') }}" method="GET">
+      <input type="text" name="query" placeholder="検索キーワード">
+      <button type="submit">検索</button>
+  </form>
+    {{-- <div class="search-bar">
       <input type="text" id="searchInput" placeholder="検索したい用語を入力">
       <button id="searchButton" class="search-button">Go</button>
-    </div>
+    </div> --}}
   </div>
   <div class="user-info">
     <button class="register-button">
@@ -84,6 +88,7 @@
 </header>
 
 <div class="big-container">
+ 一覧ページの見た目修正byおうた
   @foreach ($tasks as $task)
   <div class="up-container">
     <div class="post-box">
@@ -109,6 +114,30 @@
       </div>
     </div>
   @endforeach
+=======
+@foreach ($tasks as $task)
+<div class="post-box">
+  <div class="image-container">
+    <img src="{{ url('storage/images/' . $task->image_at) }}" alt="Image">
+  </div>
+  <div class="post-content">
+    <h2 class="title">{{ $task->title }}</h2>
+    <p class="contents">{{ $task->contents }}</p>
+
+    <a href="#"><i class="far fa-bookmark"></i></a>
+    <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
+    <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
+      @csrf
+      @method('delete')
+
+    <input type='submit' value='削除'class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>  
+    {{-- <button class="delete-button">削除</button> --}}
+    </form>
+    {{-- <a href="{{ route('tasks.show', $task->id) }}">View Details</a> --}}
+  </div>
 </div>
->>>>>>> Stashed changes
+@endforeach
+ main
+</div>
+Stashed changes
 @endsection

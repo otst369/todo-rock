@@ -102,4 +102,18 @@ class TaskController extends Controller
         $task -> delete();
         return redirect()->route('tasks.index');
     }
+    //検索機能
+    // TaskController.php
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $tasks = Task::where('title', 'LIKE', "%$query%")
+                    ->orWhere('contents', 'LIKE', "%$query%")
+                    ->get();
+
+        return view('search', compact('tasks', 'query'));
+    }
+
+
 }
