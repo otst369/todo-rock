@@ -41,7 +41,37 @@
     <h2 class="title">{{ $task->title }}</h2>
     <p class="contents">{{ $task->contents }}</p>
 
-    <a href="#"><i class="far fa-bookmark"></i></a>
+    {{-- <a href="#"><i class="far fa-bookmark"></i></a> --}}
+    {{-- <div style="padding:10px 40px">
+      @if($bookmark->likedBy(Auth::user())->count() > 0)
+      <a href="/tasks/{{ $bookmark->likedBy(Auth::user())
+      ->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
+      @else
+      <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a>
+      @endif
+      {{ $task->bookmarks->count() }}
+
+    </div> --}}
+
+    <div>
+      @php
+          $userBookmark = $task->bookmarks()->where('user_id', Auth::user()->id)->first();
+      @endphp
+  
+      @if($userBookmark)
+          <a href="/tasks/{{ $userBookmark->id }}">
+              <i class="fas fa-bookmark"></i>
+          </a>
+      @else
+          <a href="/tasks/{{ $task->id }}/bookmarks">
+              <i class="far fa-bookmark"></i>
+          </a>
+      @endif
+  
+      {{ $task->bookmarks()->count() }}
+  </div>
+  
+  
     <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
     <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
       @csrf

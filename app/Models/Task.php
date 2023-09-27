@@ -16,6 +16,11 @@ class Task extends Model
     {
         return $this->hasMany('App\Models\Bookmark');
     }
+    public function isBookmarkedByUser($user)
+    {
+        return Bookmark::where('user_id', $user->id)->where('task_id',$this->id);
+    }
+
     public function comment()
     {
         return $this->hasMany('App\Models\Comment');

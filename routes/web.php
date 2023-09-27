@@ -32,7 +32,7 @@ Route::get('/tasks/create', [App\Http\Controllers\TaskController::class, 'create
 Route::post('/tasks', [App\Http\Controllers\TaskController::class, 'store'])->name('tasks.store');
 
 //タスク詳細ページ
-Route::get('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.show');
+Route::get('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.index');
 
 //タスク編集
 Route::get('/tasks/{id}/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('tasks.edit');

@@ -102,4 +102,11 @@ class TaskController extends Controller
         $task -> delete();
         return redirect()->route('tasks.index');
     }
+    //showメソッド必要やったわ
+    public function show($id)
+    {
+        // タスクの詳細表示のロジックをここに追加
+        $task = Task::find($id);
+        return view('tasks.show', ['task' => $task]);
+    }
 }
