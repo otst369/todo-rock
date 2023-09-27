@@ -36,21 +36,20 @@
     <img src="{{ url('storage/images/' . $task->image_at) }}" alt="Image">
   </div>
 
+
   <div class="post-content">
     <h2 class="title">{{ $task->title }}</h2>
     <p class="contents">{{ $task->contents }}</p>
-  </div>
 
-  <div style="padding:10px 40px">
-    @if($task->likedBy(Auth::user())->count() > 0)
-    <a href="/bookmarks/{{ $task->likedBy(Auth::user())
-    ->firstOrfail()->id }}"><i class="fas fa-bookmark"></i></a>
-    @else
-    <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark"></i></a>
-    @endif
-    {{ $task->bookmarks()->count() }}
-</div>
-    
+    <<div>
+      @if($task->likedBy(Auth::user())->count() > 0)
+      <a href="/bookmarks/{{ $task->likedBy(Auth::user())
+      ->firstOrfail()->id }}"><i class="fas fa-bookmark fa-2x"></i></a>
+      @else
+      <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark fa-2x"></i></a>
+      @endif
+      {{ $task->bookmarks()->count() }}
+    </div>
   
   
     <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
