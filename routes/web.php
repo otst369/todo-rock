@@ -32,7 +32,7 @@ Route::get('/tasks/create', [App\Http\Controllers\TaskController::class, 'create
 Route::post('/tasks', [App\Http\Controllers\TaskController::class, 'store'])->name('tasks.store');
 
 //タスク詳細ページ
-Route::get('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.show');
+// Route::get('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.show');
 
 //タスク編集
 Route::get('/tasks/{id}/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('tasks.edit');
@@ -44,6 +44,10 @@ Route::put('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'update']
 Route::delete('/tasks/{id}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('tasks.destroy');
 
 //以下任意機能
+// Route::get('/tasks/search', [App\Http\Controllers\TaskController::class, 'search'])->name('tasks.search');
+Route::get('/tasks/search', [App\Http\Controllers\TaskController::class, 'search'])->name('tasks.search');
+
+
 //ブックマークを作成
 // Route::get('tasks/{task_id}/bookmarks', [App\Http\Controllers\BookmarkController::class, 'store']);
 

@@ -10,10 +10,14 @@
 <header>
   <div class="header-left">
     <span class="todo-text">検索機能</span>
-    <div class="search-bar">
+    <form action="{{ route('tasks.search') }}" method="GET">
+      <input type="text" name="query" placeholder="検索キーワード">
+      <button type="submit">検索</button>
+  </form>
+    {{-- <div class="search-bar">
       <input type="text" id="searchInput" placeholder="検索したい用語を入力">
       <button id="searchButton" class="search-button">Go</button>
-    </div>
+    </div> --}}
   </div>
   <div class="user-info">
     <button class="register-button">
@@ -26,17 +30,9 @@
 <div class="big-container">
 @foreach ($tasks as $task)
 <div class="post-box">
-  {{-- <div class="image-container">
-    <img src="{{asset('/storage/images/') . $task->image_at }}" alt="Image">
-  </div> --}}
-  {{-- <div class="image-container">
-    <img src="{{ asset('/storage/images/' . $task->image_at) }}" alt="Image">
-  </div> --}}
   <div class="image-container">
     <img src="{{ url('storage/images/' . $task->image_at) }}" alt="Image">
   </div>
-
-
   <div class="post-content">
     <h2 class="title">{{ $task->title }}</h2>
     <p class="contents">{{ $task->contents }}</p>
