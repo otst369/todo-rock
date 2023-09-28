@@ -21,8 +21,13 @@
                 <p class="contents">{{ $task->contents }}</p>
                 <div class="inside-container">
                     <div class="bookmark">
-                    <a href="#"><i class="far fa-bookmark"></i></a>
-                    </div>
+                        @if($task->likedBy(Auth::user())->count() > 0)
+                        <a href="/bookmarks/{{ $task->likedBy(Auth::user())
+                        ->firstOrfail()->id }}"><i class="fas fa-bookmark fa-2x"></i></a>
+                        @else
+                        <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark fa-2x"></i></a>
+                        @endif
+                    </div> 
                 <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
                 <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
                     @csrf
