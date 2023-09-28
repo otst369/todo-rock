@@ -42,6 +42,7 @@
                             <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark fa-2x"></i></a>
                             @endif
                         </div> 
+
                         <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
                         <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
                             @csrf
@@ -51,6 +52,8 @@
                         </form>
                         @endif
                     </div>
+                    <p class="post-date">投稿日時 : {{ $task->created_at }}</p>
+                    <p class="update-date">更新日時 : {{ $task->updated_at }}</p>
                 </div>
             </div>
         @endforeach

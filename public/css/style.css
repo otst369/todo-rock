@@ -74,6 +74,13 @@ body {
 .contents {
   text-align: center;
 }
+.post-date{
+  text-align: center;
+  margin-top: 32px;
+}
+.update-date{
+  text-align: center;
+}
 .edit-button {
   padding: 8px 16px;
   background-color: #4CAF50;  
