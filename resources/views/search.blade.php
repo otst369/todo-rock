@@ -39,9 +39,21 @@
                                     onclick='return confirm("本当に削除しますか？");'>
                             </form>
                             @endif
+                            <a href="{{ route('comments.create', $task->id) }}" class="comment-button">コメント</a>
                         </div>
                         <p class="post-date">投稿日時 : {{ $task->created_at }}</p>
                         <p class="update-date">更新日時 : {{ $task->updated_at }}</p>
+
+                        <h5>コメント一覧</h5>
+                        @foreach($task->comments as $comment)
+                        <div class="card mt-3">
+                            <h6 class="card-header">投稿者：{{ $comment->user->name }}</h6>
+                            <div class="card-body">
+                                <h6 class="card-title">投稿日時：{{ $comment->created_at }}</h6>
+                                <p class="card-text">内容：{{ $comment->body }}</p>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             @endforeach
