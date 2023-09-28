@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
 <h2>検索結果</h2>
 
 <div class="big-container">
