@@ -49,10 +49,10 @@ Route::get('/tasks/search', [App\Http\Controllers\TaskController::class, 'search
 
 
 //ブックマークを作成
-// Route::get('tasks/{task_id}/bookmarks', [App\Http\Controllers\BookmarkController::class, 'store']);
+Route::get('tasks/{task_id}/bookmarks', [App\Http\Controllers\BookmarkController::class, 'store']);
 
 //ブックマークを取り消す
-// Route::get('bookmarks/{bookmark_id}', [App\Http\Controllers\BookmarkController::class, 'destroy']);
+Route::get('bookmarks/{bookmark_id}', [App\Http\Controllers\BookmarkController::class, 'destroy']);
 
 //コメント機能
 // Route::get('/comments/create/{task_id}',[App\Http\Controllers\CommentController::class, 'create'])->name('comments.create');
