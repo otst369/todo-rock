@@ -20,12 +20,12 @@ class BookmarkController extends Controller
 
     public function destroy(Request $request)
     {
+    
         // ブックマーク削除
         $bookmark = Bookmark::find($request->bookmark_id);
         if ($bookmark) {
             $bookmark->delete();
         }
-
         return redirect('/tasks');
     }
 }
