@@ -51,15 +51,7 @@
                             {{-- {{ $task->bookmarks() }} --}}
                             @endif
                         </div> 
-                        {{-- @if($task->likedBy(Auth::user())->count() > 0)
-                        <a href="/bookmarks/{{ $task->likedBy(Auth::user())
-                        ->firstOrfail()->id }}"><i class="fas fa-bookmark fa-2x"></i></a>
-                        @else
-                        <a href="/tasks/{{ $task->id }}/bookmarks"><i class="far fa-bookmark fa-2x"></i></a>
-                        
-                        {{ $task->bookmarks()->count() }}
-                        @endif --}}
-                        
+                    
                         <a href="{{ route('tasks.edit', $task->id) }}" class="edit-button">編集</a>
                         <form action='{{ route('tasks.destroy', $task->id) }}' method='post'>
                             @csrf
@@ -67,11 +59,11 @@
 
                             <input type='submit' value='削除'class="btn btn-danger"
                                 onclick='return confirm("本当に削除しますか？");'>
-                            {{-- <button class="delete-button">削除</button> --}}
                         </form>
-                        {{-- <a href="{{ route('tasks.show', $task->id) }}">View Details</a> --}}
                         @endif
                     </div>
+                    <p class="post-date">投稿日時 : {{ $task->created_at }}</p>
+                    <p class="update-date">更新日時 : {{ $task->updated_at }}</p>
                 </div>
             </div>
         @endforeach
