@@ -21,7 +21,7 @@ class Task extends Model
         return Bookmark::where('user_id', $user->id)->where('task_id',$this->id);
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany('App\Models\Comment');
     }
