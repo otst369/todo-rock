@@ -176,3 +176,7 @@ body {
     box-sizing: border-box; /* パディングを含めた要素の全体のサイズを調整 */
     height: 150px; /* 必要に応じて高さを調整 */
 }
+
+h2{
+  margin-left: 25px;
+}
