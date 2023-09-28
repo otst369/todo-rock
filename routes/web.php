@@ -55,9 +55,9 @@ Route::get('tasks/{task_id}/bookmarks', [App\Http\Controllers\BookmarkController
 Route::get('bookmarks/{bookmark_id}', [App\Http\Controllers\BookmarkController::class, 'destroy']);
 
 //コメント機能
-// Route::get('/comments/create/{task_id}',[App\Http\Controllers\CommentController::class, 'create'])->name('comments.create');
+Route::get('/comments/create/{task_id}',[App\Http\Controllers\CommentController::class, 'create'])->name('comments.create');
 
-// Route::post('/comments',[App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
+Route::post('/comments',[App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 
 //自分のtaskだけ削除
 // Route::post('/tasks/delete/{id}', [App\Http\Controllers\TaskController::class, 'destroy'])->name('destroy');

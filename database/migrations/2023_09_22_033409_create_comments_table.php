@@ -18,6 +18,8 @@ class CreateCommentsTable extends Migration
             $table->text('body');
             $table->bigInteger('task_id');
             $table->bigInteger('user_id');
+            $table->foreign('task_id')->references('id')->on('task');
+            $table->foreign('user_id')->references('id')->on('user');
             $table->timestamps();
         });
     }
